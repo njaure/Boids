@@ -55,7 +55,8 @@ class Boids
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-
+     inline unsigned int Get_r(void) const;
+     inline unsigned int Get_c(void) const;
     // =======================================================================
     //                            Accessors: setters
     // =======================================================================
@@ -86,11 +87,11 @@ class Boids
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
-    Boids(const Boids &model)
+    /*Boids(const Boids &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
-    };
+    };*/
 
 
     // =======================================================================
@@ -100,13 +101,35 @@ class Boids
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
+     
+    // radius perception
+      const unsigned int r ;
+    // contact distance
+      const unsigned int c ;
+    // Width
+      static const unsigned int w=20 ;
+    // Height 
+      static const  unsigned int h=25 ;
+    // number of agent in total
+      static unsigned int N ;
+    // Double array R2
+      static const unsigned int array [w][h];
+
+
 };
 
 
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
-
+inline unsigned int Boids::Get_r(void) const
+{
+    return r;
+} 
+inline unsigned int Boids::Get_c(void) const
+{
+    return c;
+} 
 // ===========================================================================
 //                              Setters' definitions
 // ===========================================================================
