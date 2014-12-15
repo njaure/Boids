@@ -21,7 +21,7 @@
 // ===========================================================================
 //                                Project Files
 // ===========================================================================
-
+#include "Boids.h"
 
 
 
@@ -55,11 +55,13 @@ class Agent
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-
+     inline  unsigned int Get_x(void) const;
+     inline  unsigned int Get_y(void) const;
     // =======================================================================
     //                            Accessors: setters
     // =======================================================================
-
+     inline  void Set_x( unsigned int newx);
+     inline  void Set_y( unsigned int newy);
     // =======================================================================
     //                                Operators
     // =======================================================================
@@ -86,11 +88,11 @@ class Agent
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
     };*/
-    Agent(const Agent &model)
+    /*Agent(const Agent &model)
     {
       printf("%s:%d: error: call to forbidden constructor.\n", __FILE__, __LINE__);
       exit(EXIT_FAILURE);
-    };
+    };*/
 
 
     // =======================================================================
@@ -100,17 +102,46 @@ class Agent
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
+       //number of agent between agent i and r
+       const unsigned int K;
+       // number of agent that their distance with j is less than c
+       const unsigned int k;
+       //number of objects that their distance with i is less than c
+       const unsigned int O;
+
+       unsigned int x;
+       unsigned int y;
+      
+      
+
+
+
+
 };
 
 
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
-
+   inline  unsigned int Agent::Get_x(void) const
+   {
+    return x;
+   }
+   inline  unsigned int Agent::Get_y(void) const
+   {
+    return y;
+   }
 // ===========================================================================
 //                              Setters' definitions
 // ===========================================================================
-
+   inline  void Agent::Set_x(unsigned int newx) 
+   {
+      x=newx;
+   }
+   inline  void Agent::Set_y(unsigned int newy) 
+   {
+      x=newy;
+   }
 // ===========================================================================
 //                             Operators' definitions
 // ===========================================================================
