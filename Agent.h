@@ -15,7 +15,7 @@
 // ===========================================================================
 #include <cstdio>
 #include <cstdlib>
-
+#include <string.h>
 
 
 // ===========================================================================
@@ -34,7 +34,7 @@
 
 
 
-class Agent
+class Agent : public Boids
 {
   public :
     
@@ -55,13 +55,13 @@ class Agent
     // =======================================================================
     //                            Accessors: getters
     // =======================================================================
-     inline  unsigned int Get_x(void) const;
-     inline  unsigned int Get_y(void) const;
+     inline  float Get_x(void) const;
+     inline  float Get_y(void) const;
     // =======================================================================
     //                            Accessors: setters
     // =======================================================================
-     inline  void Set_x( unsigned int newx);
-     inline  void Set_y( unsigned int newy);
+     inline  void Set_x( float newx);
+     inline  void Set_y( float newy);
     // =======================================================================
     //                                Operators
     // =======================================================================
@@ -69,7 +69,11 @@ class Agent
     // =======================================================================
     //                              Public Methods
     // =======================================================================
-
+      float position(void);
+      float global_speed();
+      float alignment();
+      float cohesive();
+      float separation();
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
@@ -98,19 +102,21 @@ class Agent
     // =======================================================================
     //                              Protected Methods
     // =======================================================================
-
+       
     // =======================================================================
     //                             Protected Attributes
     // =======================================================================
        //number of agent between agent i and r
-       const unsigned int K;
+        unsigned int K;
        // number of agent that their distance with j is less than c
-       const unsigned int k;
+        unsigned int Kbis;
        //number of objects that their distance with i is less than c
-       const unsigned int O;
+        unsigned int O;
 
-       unsigned int x;
-       unsigned int y;
+       float x;
+       float y;
+       float init_speed;
+       static float dt;
       
       
 
@@ -123,25 +129,25 @@ class Agent
 // ===========================================================================
 //                              Getters' definitions
 // ===========================================================================
-   inline  unsigned int Agent::Get_x(void) const
+   inline  float Agent::Get_x(void) const
    {
     return x;
    }
-   inline  unsigned int Agent::Get_y(void) const
+   inline  float Agent::Get_y(void) const
    {
     return y;
    }
 // ===========================================================================
 //                              Setters' definitions
 // ===========================================================================
-   inline  void Agent::Set_x(unsigned int newx) 
+   inline  void Agent::Set_x(float newx) 
    {
       x=newx;
    }
-   inline  void Agent::Set_y(unsigned int newy) 
+   inline  void Agent::Set_y(float newy) 
    {
       x=newy;
-   }
+   };
 // ===========================================================================
 //                             Operators' definitions
 // ===========================================================================

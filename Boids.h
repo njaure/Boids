@@ -103,17 +103,18 @@ class Boids
     // =======================================================================
      
     // radius perception
-      const unsigned int r ;
+       unsigned int r ;
     // contact distance
-      const unsigned int c ;
+       unsigned int c ;
     // Width
-      static const unsigned int w=20 ;
+      static const unsigned int w;
     // Height 
-      static const  unsigned int h=25 ;
+      static const  unsigned int h;
     // number of agent in total
-      static unsigned int N ;
-    // Double array R2
-      static const unsigned int array [w][h];
+      static unsigned int N  ;
+    //  array that stock the position of the agents
+      float array[100];
+       
 
 
 };
