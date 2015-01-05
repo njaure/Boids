@@ -17,7 +17,7 @@
 //                                 Project Files
 // ===========================================================================
 #include "Agent.h"
-
+#include <math.h>
 
 
 
@@ -52,16 +52,39 @@ Agent::~Agent(void)
 // ===========================================================================
 //                                 Public Methods
 // ===========================================================================
+int Agent::agentj(int num_agent){
+	int i,l;
+	int agenti = (num_agent-1)*2;
+	agent = new float [2*N];
+    for (i=2; i<2*N; i+2){
+    float distance= sqrt(pow(array[i]-array[agenti],2) -pow(array[i+1]-array[agenti+1],2));
+      if (distance <r){
+           K=K+1;
+           agent[0]=K;
+           for(l=1;l<2*K;l+2){
+      agent[l]=array[i];
+      agent[l+1]=array[i+1];   
+        } 
+    }
+    return agent; }
+	
+
+}
 float Agent::position(void){
  int i;
- float t;
+float t;
  for (t=0;t<1000; dt){
  	for (i=0; i<N; i+2){
  		array[i]= array[i] + (dt*global_speed());
  		array[i+1]=array[i+1] + (dt*global_speed());
-
  	}
  }
+}
+
+float Agent::alignement(float t){
+float vit;
+float dif = (agent[])
+vit = 1/K*(dif)
 }
 // ===========================================================================
 //                                Protected Methods

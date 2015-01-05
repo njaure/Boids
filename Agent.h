@@ -71,13 +71,14 @@ class Agent : public Boids
     // =======================================================================
       float position(void);
       float global_speed();
-      float alignment();
+      float alignement();
       float cohesive();
       float separation();
+      int agentj(int num_agent);
     // =======================================================================
     //                             Public Attributes
     // =======================================================================
-
+      float *agent;
 
 
 
